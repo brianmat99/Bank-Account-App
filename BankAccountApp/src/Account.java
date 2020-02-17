@@ -67,6 +67,6 @@ public abstract class Account implements IBaseRate {
 	}
 	
 	public void showInfo() {
-		System.out.println("Name: " + m_name + "\nSSN = " + m_SSN + "\nBALANCE = $" + m_balance + "\nEMAIL = " + m_email);
+		System.out.println("Name: " + m_name + "\nSSN = " + m_SSN + "\nBALANCE = $" + m_balance + "\nEMAIL = " + m_email + "\n"); 
 	}
 }

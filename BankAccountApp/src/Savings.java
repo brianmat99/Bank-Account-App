@@ -9,7 +9,6 @@ public class Savings extends Account {
 			accountNumber = "2" + accountNumber;
 			setSDBid();
 			setSDBcode();
-			//System.out.println("ACC#: " + accountNumber + "\nID: "+ safetyDepBoxID + "\nCODE: " + safetyDepBoxCode);
 		}
 	
 	
@@ -31,6 +30,7 @@ public class Savings extends Account {
 	
 	public void showInfo() {
 		super.showInfo();
-		System.out.println("SAFETY ID: " + safetyDepBoxID + "\nSAFETY CODE: " + safetyDepBoxCode + "\nRATE: " + m_rate);
+		System.out.println("YOUR SAVINGS ACCOUNT DETAILS: ");
+		System.out.println("SAFETY ID: " + safetyDepBoxID + "\nSAFETY CODE: " + safetyDepBoxCode + "\nRATE: " + m_rate + "\n*******************************");
 	}
 }

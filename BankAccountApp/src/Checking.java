@@ -9,7 +9,6 @@ public class Checking extends Account{
 		accountNumber = "1" + accountNumber;
 		setDCN();
 		setDPN();
-		//System.out.println("ACC#: " + accountNumber + "\nCARD: "+ debitCardNumber + "\nPIN: " + debitPinNumber);
 	}
 
 //List any methods that pertain to class
@@ -22,6 +21,7 @@ public class Checking extends Account{
 	
 	public void showInfo() {
 		super.showInfo();
-		System.out.println("DEBIT CARD NUMBER: " + debitCardNumber + "\nPIN NUMBER: "+ debitPinNumber + "\nRATE: " + m_rate);
+		System.out.println("YOUR CHECKING ACCOUNT DETAILS: ");
+		System.out.println("DEBIT CARD NUMBER: " + debitCardNumber + "\nPIN NUMBER: "+ debitPinNumber + "\nRATE: " + m_rate + "\n*******************************");
 	}
 }
