@@ -11,16 +11,38 @@ public class BankAccountApp {
 		
 		String filename = "users.csv";
 		File myUsers = new File(filename);
+		List<Account> users = new LinkedList<Account>();
+		//LinkedList<Account> accountHolders = new LinkedList<Account>;
 		try {
 			Scanner in = new Scanner(myUsers);
+			in.nextLine();//ignoring the first line
 			while (in.hasNext()) {
-				String data = in.nextLine();
-				System.out.println(data);
+				String data = in.nextLine();//will grab one line, then skip
+				String[] values = data.split(",");
+				for (int i = 0; i<values.length;i++) {
+					//System.out.println(values[i]);
+				}
+				String name = values[0];
+				String SSN = values[1];
+				double initDeposit = Double.parseDouble(values[2]);
+				String email = values [3];
+				String type = values [4];
+				//System.out.println(name);
+				
+				if (type.equals("savings")) {
+					users.add(new Savings(name, SSN, initDeposit,email));
+				}
+				else if (type.equals("checking")) {
+					users.add(new Checking(name, SSN, initDeposit,email));
+				}else {
+					System.out.println("Invalid account.");
+				}
 			}
 			in.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace(); 	
 		}
+		
 		
 		// TODO Auto-generated method stub
 //		Checking chacc1 = new Checking("Brian Matamet","123456789",2000,"brianmatamet@gmail.com");
