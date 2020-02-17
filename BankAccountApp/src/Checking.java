@@ -13,12 +13,11 @@ public class Checking extends Account{
 	}
 
 //List any methods that pertain to class
-	private void setDCN() {
-		debitCardNumber = super.randomNumbGen(12);
-		
-	}
+	//checking is 15% of the base rate
+	public void setBaseRate() { m_rate = getBaseRate() * .15; }
+
+	private void setDCN() { debitCardNumber = super.randomNumbGen(12); }
 	
-	private void setDPN() {
-		debitPinNumber = super.randomNumbGen(4);
-	}
+	private void setDPN() { debitPinNumber = super.randomNumbGen(4); }
+	
 }

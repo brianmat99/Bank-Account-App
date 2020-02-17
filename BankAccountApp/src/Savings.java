@@ -14,7 +14,11 @@ public class Savings extends Account {
 	
 	
 	//List any methods that pertain to class
-	
+	//savings is .30 points less than the base rate
+	public void setBaseRate() {
+		m_rate = getBaseRate() - .30;
+	}
+		
 	//3 digits - safety deposit box ID
 	private void setSDBid() {
 		safetyDepBoxID = super.randomNumbGen(3);

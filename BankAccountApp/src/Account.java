@@ -20,6 +20,8 @@ public abstract class Account implements IBaseRate {
 		m_email = email;
 		
 		setAccountNumber();
+		setBaseRate();
+		System.out.println(m_rate);
 		//System.out.println("NAME: " + m_name + "\nSSN = " + m_SSN + "\nBALANCE = $" + m_balance + "\nEMAIL = " + m_email);
 	}
 	// List methods that pertain to the Account
@@ -47,5 +49,23 @@ public abstract class Account implements IBaseRate {
 		String randomTwoDig = randomNumbGen(2);
 		accountNumber = index + lastTwoOfSSN + randomTwoDig;
 		index++;
+	}
+	
+	public abstract void setBaseRate();
+	
+	public void deposit() {
+		
+	}
+	
+	public void withdraw() {
+		
+	}
+	
+	public void transfer() {
+		
+	}
+	
+	public void showInfo() {
+		
 	}
 }
