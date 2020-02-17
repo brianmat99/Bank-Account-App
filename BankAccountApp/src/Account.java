@@ -21,7 +21,6 @@ public abstract class Account implements IBaseRate {
 		
 		setAccountNumber();
 		setBaseRate();
-		System.out.println(m_rate);
 		//System.out.println("NAME: " + m_name + "\nSSN = " + m_SSN + "\nBALANCE = $" + m_balance + "\nEMAIL = " + m_email);
 	}
 	// List methods that pertain to the Account
@@ -53,19 +52,21 @@ public abstract class Account implements IBaseRate {
 	
 	public abstract void setBaseRate();
 	
-	public void deposit() {
-		
+	public void deposit(double amount) {
+		m_balance = m_balance + amount;
 	}
 	
-	public void withdraw() {
-		
+	public void withdraw(double amount) {
+		m_balance = m_balance - amount;
 	}
 	
-	public void transfer() {
-		
+	//Will implement this further to include details of transaction
+	public void transfer(String location,double amount) {
+		m_balance = m_balance - amount;
+		System.out.println("Transferring $" + amount + "to " + location);
 	}
 	
 	public void showInfo() {
-		
+		System.out.println("Name: " + m_name + "\nSSN = " + m_SSN + "\nBALANCE = $" + m_balance + "\nEMAIL = " + m_email);
 	}
 }
