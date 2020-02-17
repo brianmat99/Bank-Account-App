@@ -1,11 +1,12 @@
 
 public abstract class Account implements IBaseRate {
 //List Properties that include both Savings and Checking account
-	//Member variable listed with "m_"
+	//Member variables listed with "m_"
 	String m_name;
 	String m_SSN;
 	String m_email;
-	
+	String accountNumber;
+	static int index = 100000;
 	
 	double m_balance;
 	double m_rate;
@@ -17,7 +18,55 @@ public abstract class Account implements IBaseRate {
 		m_SSN = SSN;
 		m_balance = initDeposit;
 		m_email = email;
-		System.out.println("NAME: " + m_name + "\nSSN = " + m_SSN + "\nBALANCE = $" + m_balance + "\nEMAIL = " + m_email);
+		
+		setAccountNumber();
+		setBaseRate();
+		//System.out.println("NAME: " + m_name + "\nSSN = " + m_SSN + "\nBALANCE = $" + m_balance + "\nEMAIL = " + m_email);
 	}
 	// List methods that pertain to the Account
+	protected String randomNumbGen(long size) {
+		long randomNumb;
+		do {
+			randomNumb = (long)(Math.random() * Math.pow(10, size));
+			if (String.valueOf(randomNumb).length() == size) {
+				break;
+			}
+		}while (1!=0);
+		String numb = String.valueOf(randomNumb);
+		return numb;
+	}
+	
+	/* For account number
+	 * 11 digits
+	 * (first digit) 1 for checking, 2 for savings ***This will be done in derived classes***
+	 * (6 digits) unique 6 digit combination
+	 * (2 digits) last 2 digits of SSN
+	 * (2 digits) random 2 digit number
+	 */
+	private void setAccountNumber() {
+		String lastTwoOfSSN = m_SSN.substring(m_SSN.length()-2, m_SSN.length()); 
+		String randomTwoDig = randomNumbGen(2);
+		accountNumber = index + lastTwoOfSSN + randomTwoDig;
+		index++;
+	}
+	
+	public abstract void setBaseRate();
+	
+	public void deposit(double amount) {
+		m_balance = m_balance + amount;
+	}
+	
+	public void withdraw(double amount) {
+		m_balance = m_balance - amount;
+	}
+	
+	//Will implement this further to include details of transaction
+	public void transfer(String location,double amount) {
+		m_balance = m_balance - amount;
+		System.out.println("Transferring $" + amount + "to " + location);
+	}
+	
+	public void showInfo() {
+		System.out.println("Name: " + m_name + "\nSSN = " + m_SSN + "\nBALANCE = $" + m_balance + "\nEMAIL = " + m_email + "\n"); 
+	}
 }
