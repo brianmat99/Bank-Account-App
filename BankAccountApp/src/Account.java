@@ -20,4 +20,15 @@ public abstract class Account implements IBaseRate {
 		System.out.println("NAME: " + m_name + "\nSSN = " + m_SSN + "\nBALANCE = $" + m_balance + "\nEMAIL = " + m_email);
 	}
 	// List methods that pertain to the Account
+	protected String randomNumbGen(long size) {
+		long randomNumb;
+		do {
+			randomNumb = (long)(Math.random() * Math.pow(10, size));
+			if (String.valueOf(randomNumb).length() == size) {
+				break;
+			}
+		}while (1!=0);
+		String numb = String.valueOf(randomNumb);
+		return numb;
+	}
 }
