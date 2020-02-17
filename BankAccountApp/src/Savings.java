@@ -1,12 +1,27 @@
 
 public class Savings extends Account {
 	//Create properties specific to the Checking account
-	int safetyDepBoxID;//3 digit identifier
-	int safetyDepBoxCode;//4 digit access code
+	String safetyDepBoxID;//3 digit identifier
+	String safetyDepBoxCode;//4 digit access code
 	//Create class constructor to initialize values
 		public Savings(String name, String SSN, double initDeposit, String email) {
 			super(name,SSN,initDeposit,email);
-			System.out.println("SAVINGS ACCOUNT CREATED!");
+			accountNumber = "2" + accountNumber;
+			setSDBid();
+			setSDBcode();
+			//System.out.println("ACC#: " + accountNumber + "\nID: "+ safetyDepBoxID + "\nCODE: " + safetyDepBoxCode);
 		}
+	
+	
 	//List any methods that pertain to class
+	
+	//3 digits - safety deposit box ID
+	private void setSDBid() {
+		safetyDepBoxID = super.randomNumbGen(3);
+	}
+	
+	//4 digits - safety deposit box CODE
+	private void setSDBcode() {
+		safetyDepBoxCode = super.randomNumbGen(4);
+	}
 }

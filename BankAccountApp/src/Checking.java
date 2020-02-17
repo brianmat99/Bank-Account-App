@@ -6,15 +6,19 @@ public class Checking extends Account{
 //Create class constructor to initialize values
 	public Checking(String name, String SSN, double initDeposit, String email) {
 		super(name, SSN, initDeposit, email);
-		System.out.println("CHECKING ACCOUNT CREATED!");
-		setDCN();	
+		accountNumber = "1" + accountNumber;
+		setDCN();
+		setDPN();
+		//System.out.println("ACC#: " + accountNumber + "\nCARD: "+ debitCardNumber + "\nPIN: " + debitPinNumber);
 	}
-	
-	private void setDCN() {
-		String DCN = super.randomNumbGen(12);
-		System.out.println(DCN);
-	}
-	
 
 //List any methods that pertain to class
+	private void setDCN() {
+		debitCardNumber = super.randomNumbGen(12);
+		
+	}
+	
+	private void setDPN() {
+		debitPinNumber = super.randomNumbGen(4);
+	}
 }
