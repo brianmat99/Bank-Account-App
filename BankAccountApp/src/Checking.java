@@ -20,4 +20,8 @@ public class Checking extends Account{
 	
 	private void setDPN() { debitPinNumber = super.randomNumbGen(4); }
 	
+	public void showInfo() {
+		super.showInfo();
+		System.out.println("DEBIT CARD NUMBER: " + debitCardNumber + "\nPIN NUMBER: "+ debitPinNumber + "\nRATE: " + m_rate);
+	}
 }

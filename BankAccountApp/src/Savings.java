@@ -28,4 +28,9 @@ public class Savings extends Account {
 	private void setSDBcode() {
 		safetyDepBoxCode = super.randomNumbGen(4);
 	}
+	
+	public void showInfo() {
+		super.showInfo();
+		System.out.println("SAFETY ID: " + safetyDepBoxID + "\nSAFETY CODE: " + safetyDepBoxCode + "\nRATE: " + m_rate);
+	}
 }
